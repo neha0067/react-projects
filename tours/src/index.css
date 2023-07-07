@@ -1,1 +1,80 @@
+body{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 0.875rem
+}
 
+.header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+h1 {
+    font-size: 50px;
+    margin-bottom: 0.75rem;
+}
+
+.underline {
+    width: 150px;
+    height: 5px;
+    background-color: hsl(128, 87%, 34%);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.eachTour {
+    position: relative;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px gray;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.tourBox {
+    width: 1000px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 30px;
+    text-align: center;
+}
+
+.price {
+    color: white;
+    background: hsl(128, 87%, 34%);
+    margin: 0px 120px;
+    font-size: 0.875rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.eachTour img {
+    width: 100%;
+    height: 20rem;
+    object-fit: cover;
+}
+
+.readMore {
+    background: transparent;
+    border-color: transparent;
+    color: hsl(128, 87%, 34%);
+}
+
+.not-interested {
+    width: 80%;
+    margin-bottom: 10px;
+    color: hsl(128, 87%, 34%);
+    border-color: hsl(128, 87%, 34%);
+    background: transparent;
+}
+
+.not-interested:hover {
+    color: hsl(128, 87%, 34%);
+}

@@ -13,15 +13,15 @@ export default function Tour(props) {
     }
 
     return (
-        <section>
+        <section className="eachTour">
             <img src={props.image}/>
             <footer>
                 <h2>{props.name}</h2>
-                <h2>{props.price}</h2>
+                <h2 className='price'>{props.price}</h2>
                 <div>
                     <p>
                         {readMore ? props.info : `${props.info.substring(0, 200)}...`}
-                        <button onClick={toggleReadMore}>
+                        <button className="readMore" onClick={toggleReadMore}>
                             {readMore ? 'Show Less' : 'Read More'}
                         </button>
                     </p>
