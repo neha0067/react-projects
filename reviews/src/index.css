@@ -6,26 +6,64 @@ body {
 main {
   width: 800px;
   background: white;
-  border: 1px solid black;
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
   box-sizing: border-box;
-  box-shadow: 5px 5px lightgray;
-  transition: box-shadow .3s ease-in-out all;
-  padding: 1.5rem 2rem;
-  margin: 200px;
-  text-align: center;
+  min-height: 100vh;
 }
 
-main:hover {
+.review {
+    width: 60vw;
+    background: white;
+    padding: 1.5rem 2rem;
+    border-radius: 5px;
+    box-sizing: border-box;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06);;
+    transition: .3s ease-in-out all;
+    text-align: center;
+}
+
+.review:hover {
   box-shadow: 5px 5px darkgray;
 }
 
 img {
-  width: 170px;
+  /* width: 170px;
   height: 170px;
   object-fit: cover;
+  border-radius: 50%; */
+  position: relative;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
+  margin: 0 auto;
+  margin-bottom: 1.5rem;
 }
 
 .job {
   color: blue;
+}
+
+.arrow-button {
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.surprise-me {
+    color: blue;
+    cursor: pointer;
+    border: transparent;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    padding: .375rem .75rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06);;
+    transition: .3s ease-in-out all;
+    text-transform: capitalize;
+    display: inline-block;
+}
+
+.surprise-me:hover {
+  background-color: rgb(7, 7, 52);
+  color: white;
 }

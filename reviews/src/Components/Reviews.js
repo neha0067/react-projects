@@ -2,7 +2,7 @@ import React from "react";
 import reviews from "../data";
 
 export default function Reviews() {
-    
+
     const [reviewIndex, setReviewIndex] = React.useState(0)
 
     function prevBtn() {
@@ -10,7 +10,7 @@ export default function Reviews() {
     }
 
     function nextBtn() {
-        setReviewIndex((prevState) => prevState === reviews.length -1 ? 0 : prevState + 1)
+        setReviewIndex((prevState) => prevState === reviews.length - 1 ? 0 : prevState + 1)
     }
 
     function handleSurprise() {
@@ -20,17 +20,23 @@ export default function Reviews() {
 
     return (
         <main>
-            <div>
-                <img src={reviews[reviewIndex].image}/>
-            </div>
-            <h2>{reviews[reviewIndex].name}</h2>
-            <p className="job">{reviews[reviewIndex].job}</p>
-            <p>{reviews[reviewIndex].text}</p>
-            <div className="arrow-button">
-                <button onClick={prevBtn}>previous</button>
-                <button onClick={nextBtn}>next</button>
-            </div>
-            <button className="surprise-me" onClick={handleSurprise}>Surprise Me</button>
+            <article className="review">
+                <div>
+                    <img src={reviews[reviewIndex].image} />
+                    <span className="quote-icon">
+                    
+                    </span>
+                </div>
+                <h2>{reviews[reviewIndex].name}</h2>
+                <p className="job">{reviews[reviewIndex].job}</p>
+                <p>{reviews[reviewIndex].text}</p>
+                <div className="arrow-button">
+                    <button onClick={prevBtn}>previous</button>
+                    <button onClick={nextBtn}>next</button>
+                </div>
+                <button className="surprise-me" onClick={handleSurprise}>Surprise Me</button>
+            </article>
+
         </main>
 
     )
