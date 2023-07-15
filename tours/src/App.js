@@ -10,8 +10,7 @@ function App() {
 
   async function fetchTours() {
     try {
-      const response = await fetch(url)
-      console.log(response);
+      const response = await fetch(url);
       const toursResponse = await response.json();
       setTours(toursResponse);
     } catch (error) {

@@ -9,7 +9,6 @@ function App() {
 
   function fetchJobs() {
     try {
-      data = JSON.parse(data);
       setJobs(data);
     } catch (error) {
       console.log(error);
