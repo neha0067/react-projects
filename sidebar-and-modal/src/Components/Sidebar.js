@@ -6,13 +6,13 @@ import { links, social } from '../data';
 export default function Sidebar(props) {
     return (
         <aside>
-            <div>
+            <div className="sidebar-logo">
                 <img src={logo} alt='coding addict'/>
-                <button onClick={() => props.closeSidebar(false)}>
+                <button className="sidebarCloseButton" onClick={() => props.closeSidebar(false)}>
                     <FaTimes />
                 </button>
             </div>
-            <ul>
+            <ul className="links">
                 {
                     links.map((link) => {
                         return <li key={link.id}>
