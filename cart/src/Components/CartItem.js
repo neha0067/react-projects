@@ -1,16 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AppContext } from "../App";
 
 
-export default function CartItem({ id, img, title, price, amount }){
+export default function CartItem({cart}){
+    const { dispatch } = useContext(AppContext);
+    const { id, img, title, price, amount } = cart;
     return (
         <div>
-            <img src={img} alt="Phone Image" />
+            <img src={img} alt={title} />
             <h3>{title}</h3>
             <p>{price}</p>
-            <button>remove</button>
-            <button>up</button>
+            <button onClick={() => dispatch({type: "REMOVE", payload: {id}})}>remove</button>  
+            <button onClick={() => dispatch({type: "INCREASE", payload: {id}})}>up</button>
             <span>{amount}</span>
-            <button>down</button>
+            <button onClick={() => dispatch({type: "DECREASE", payload: {id}})}>down</button>
         </div>
     )
 }

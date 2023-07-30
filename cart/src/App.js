@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useReducer } from "react";
+import React, { useReducer, useEffect } from "react";
 import cartItems from "./data";
 import reducer from "./reducer";
 import Navbar from "./Components/Navbar";
@@ -16,6 +16,12 @@ export const AppContext = React.createContext();
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
+
+
+  useEffect(() => {
+    dispatch({type: "GET_TOTAL"})
+  }, [state.cart])
+
   return (
     <div>
       {state.loading ? (
@@ -23,10 +29,10 @@ function App() {
           <h1>Loading...</h1>
         </div>
       ) : (
-        <AppContext.Provider value={{...state}}>
+        <AppContext.Provider value={{...state, dispatch}}>  
           <main>
             <Navbar />
-            {/* <CartContainer /> */}
+            <CartContainer />
           </main>
         </AppContext.Provider>
       )}
