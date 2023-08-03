@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { useReducer, useEffect } from "react";
-import cartItems from "./data";
+import { cartItems } from "./data";
 import reducer from "./reducer";
 import Navbar from "./Components/Navbar";
 import CartContainer from "./Components/CartContainer";
