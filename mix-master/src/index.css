@@ -49,11 +49,12 @@ form{
     grid-template-rows: auto 1fr;
     border-radius: var(--mainBorderRadius);
 }
+*/
 
 .cocktail-image img{
-    height: 20rem;
+    height: 1rem;
     object-fit: cover;
-} */
+}
 
 .cocktail-info{
     background-color:blue;
