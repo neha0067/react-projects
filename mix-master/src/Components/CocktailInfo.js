@@ -1,7 +1,25 @@
-export default function CocktailInfo({image, name, info, glass, category, ingredients, instructions}) {
+import { useContext, useState, useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
+import { AppContext } from "../App";
+
+export default function CocktailInfo() {
+    const params = useParams();
+    const id = params.id;
+    const [cocktail, setCocktail] = useState({});
+
+    const {cocktails} = useContext(AppContext);
+    console.log(cocktails)
+
+    useEffect(() => {
+        const currCocktail = cocktails.filter((cocktail) => cocktail.id === id)[0];
+        setCocktail(currCocktail);
+    }, [id, cocktails]);
+
+    console.log(cocktail)
+    const {image, name, category, info, glass, instructions} = cocktail;
     return(
         <div>
-            <button>Back Home</button>
+            <Link to="/">Back Home</Link>
             <div>
                 <img src={image} alt={name}/>
                 <label>Name :</label>
@@ -12,8 +30,6 @@ export default function CocktailInfo({image, name, info, glass, category, ingred
                 <span>{info}</span>
                 <label>Glass :</label>
                 <span>{glass}</span>
-                <label>Ingredients :</label>
-                <span>{ingredients}</span>
                 <label>Instructions :</label>
                 <span>{instructions}</span>
             </div>

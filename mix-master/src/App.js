@@ -1,5 +1,10 @@
 import Home from './Components/Home';
 import {createContext, useCallback, useEffect, useState} from 'react'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import About from "./Components/About";
+import Navbar from "./Components/Navbar";
+import Newsletter from "./Components/Newsletter";
+import CocktailInfo from "./Components/CocktailInfo";
 
 export const AppContext = createContext();
 
@@ -12,7 +17,6 @@ export function App() {
   const fetchDrinks = useCallback(async () => {
     const response = await fetch(`${url}${searchTerm}`);
     const { drinks } = await response.json();
-    console.log(drinks);
     const newCocktails = drinks.map((drink) => {
       const {
         idDrink,
@@ -20,6 +24,8 @@ export function App() {
         strDrinkThumb,
         strAlcoholic,
         strGlass,
+        strCategory,
+        strInstructions
       } = drink;
 
       return {
@@ -27,20 +33,30 @@ export function App() {
         name: strDrink,
         image: strDrinkThumb,
         info: strAlcoholic,
-        glass: strGlass
+        glass: strGlass,
+        category: strCategory,
+        instructions: strInstructions
       }
     });
     setCocktails(newCocktails);
   }, [searchTerm]);
 
   useEffect(() => {
-    console.log("UseEffect ran");
     fetchDrinks();
   }, [searchTerm, fetchDrinks]);
 
   return (
     <AppContext.Provider value={{setSearchTerm, cocktails}}>
-      <Home />
-    </AppContext.Provider>    
+      <Router>
+          <Navbar />
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='about' element={<About />} />
+            <Route path='newsletter' element={<Newsletter />} />
+            <Route path='cocktail/:id' element={<CocktailInfo />} />
+          </Routes>
+        
+      </Router>
+    </AppContext.Provider>       
   );
 }

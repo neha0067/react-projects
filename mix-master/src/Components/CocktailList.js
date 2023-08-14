@@ -9,6 +9,7 @@ export default function CocktailList() {
       {cocktails.map((cocktail) => (
         <Cocktail
           key={cocktail.id}
+          id={cocktail.id}
           name={cocktail.name}
           image={cocktail.image}
           info={cocktail.info}

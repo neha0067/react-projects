@@ -1,18 +1,23 @@
-import React from 'react';
-import logo from '../logo.svg'
+import React from "react";
+import logo from "../logo.svg";
+import { Link } from "react-router-dom";
 
+export default function Navbar() {
+  return (
+    <nav className="navbar">
+      <div className="nav-container">
+        <Link className="selected" to="/">
+          <img src={logo} alt="Mix master logo" />
+        </Link>
 
-export default function Navbar(){
-    return (
-        <nav className='navbar'>
-            <div className='nav-container'>
-                <img src={logo} alt="Mix master logo" />
-                <div className='categories'>
-                    <a className='selected' href="/">Home</a>
-                    <a href="/">About</a>
-                    <a href="/">Newsletter</a>
-                </div>                
-            </div>
-        </nav>
-    )
+        <div className="categories">
+          <Link className="selected" to="/">
+            Home
+          </Link>
+          <Link to="/about">About</Link>
+          <Link to="/newsletter">Newsletter</Link>
+        </div>
+      </div>
+    </nav>
+  );
 }
