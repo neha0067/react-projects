@@ -1,5 +1,5 @@
 body {
-  background-color: #f28ab2;
+  background-color: #f5d0fe;
 }
 
 .body {
@@ -12,6 +12,7 @@ h1{
   font-size: 35px;
 }
 .container {
+  margin: 5rem 0;
   background-color: white;
   width: 400px;
   padding: 50px 50px;

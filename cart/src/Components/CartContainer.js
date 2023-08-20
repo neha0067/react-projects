@@ -6,16 +6,16 @@ import CartItem from "./CartItem";
 export default function CartContainer(){
     const { cart, total } = useContext(AppContext);
     return (
-        <main className="cart">
-            <h2>YOUR BAG</h2>
-            <div className="mapped-cart">
+        <main className="cart-container">
+            <header className="your-bag">YOUR BAG</header>
+            <div className="cart-items">
                 {cart.map((item) => <CartItem key={item.id} cart={item}/>)}
             </div>
-            <footer>
-                <hr className="divider-line"/>
+            <footer className="footer">
+                <hr />
                 <div className="cart-total">
-                    <h2>Total</h2>
-                    <span>{`$${total}`}</span>
+                    <p>Total</p>
+                    <span className="total-amount">{`$${total}`}</span>
                 </div>
             </footer>
         </main>
