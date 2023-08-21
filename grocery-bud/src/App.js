@@ -22,20 +22,22 @@ function App() {
   }
 
   return (
-    <div className='container'>
-      <h2>Grocery Bud</h2>
-      <form onSubmit={handleSubmit} className='form'>
-        <input type="text" value={item} onChange={(e) => setItem(e.target.value)} />
-        <button>Add Item</button>
-      </form>
-      <div>
-        {
-          list.map((listItem, index) => {
-            return <List key={index} listItem={listItem} deleteItem={deleteItem}/>
-          })
-        }
+    <main className='container'>
+      <div className='form-container'>
+        <header>Grocery Bud</header>
+        <form onSubmit={handleSubmit} className='form'>
+          <input className="text-input" type="text" value={item} onChange={(e) => setItem(e.target.value)} />
+          <button className='add-button'>Add Item</button>
+        </form>
+        <div className='grocery-container'>
+          {
+            list.map((listItem, index) => {
+              return <List key={index} listItem={listItem} deleteItem={deleteItem}/>
+            })
+          }
+        </div>
       </div>
-    </div>
+    </main>
   );
 }
 
