@@ -20,10 +20,12 @@ function App() {
 
   return (
     <div>
-      <h1>Our Menu</h1>
+      <header>Our Menu</header>
       <div className='underline'></div>
       <Categories categories={allCategories} filter={filterMenu}/>
-      <Menu items={menuItems} />
+      <div className="all-food-card">
+        <Menu items={menuItems} />
+      </div>      
     </div>
   );
 }

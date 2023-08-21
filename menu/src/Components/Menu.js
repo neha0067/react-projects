@@ -3,16 +3,16 @@ import React from "react";
 export default function Menu(props) {
     return props.items.map((menuItem) => {
         return (
-            <div className="all-food-card">
-                <article className="food-card">
-                    <img src={menuItem.img} alt="food" />
-                    <div>
-                        <h2>{menuItem.title}</h2>
-                        <button>{menuItem.price}</button>
-                    </div>
-                    <p>{menuItem.desc}</p>
-                </article>
-            </div>
+            <article className="food-card">
+                <img className="food-image" src={menuItem.img} alt="food" />
+                <div className="food-info">
+                    <header>
+                        <h4 className="food-title">{menuItem.title}</h4>
+                        <h4 className="food-price">{`$${menuItem.price}`}</h4>
+                    </header>                    
+                    <p className="food-desc">{menuItem.desc}</p>
+                </div>
+            </article>
         )
     })
 }
