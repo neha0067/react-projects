@@ -15,7 +15,7 @@ export default function SearchForm() {
     
     return (
         <div className="form-container">
-            <form onSubmit={search}>
+            <form onSubmit={search} className="form">
                 <input type= "text" onChange={(e) => searchTerm = e.target.value}/>
                 <button>Search</button>
             </form>

@@ -5,7 +5,7 @@ import { links, social } from '../data';
 
 export default function Sidebar(props) {
     return (
-        <aside>
+        <aside className="sidebar">
             <div className="sidebar-logo">
                 <img src={logo} alt='coding addict'/>
                 <button className="sidebarCloseButton" onClick={() => props.closeSidebar(false)}>
@@ -24,11 +24,11 @@ export default function Sidebar(props) {
                     }) 
                 }
             </ul>
-            <ul>
+            <ul className="social-icons">
                 {
                     social.map((item) => {
                         return <li key={item.id}>
-                            <a href={item.url}>
+                            <a className="icons" href={item.url}>
                                 {item.icon}
                             </a>
                         </li>

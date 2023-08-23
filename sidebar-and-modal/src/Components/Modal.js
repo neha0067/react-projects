@@ -3,11 +3,11 @@ import { FaTimes } from "react-icons/fa";
 
 export default function Modal(props) {
     return (
-        <div>
-            <button onClick={() => props.closeModal(false)}>
+        <div className="modal">
+            <button className="close-modal" onClick={() => props.closeModal(false)}>
                 <FaTimes />
             </button>
-            <h2>Modal Content</h2>
+            <p>Modal Content</p>
         </div>
     );
 }

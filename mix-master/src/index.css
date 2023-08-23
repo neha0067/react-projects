@@ -16,24 +16,32 @@ body{
     height: 100%;
 }
 
-.selected{
-    color: #10b981;
-}
-
 .categories a{
     padding: 0 15px;
     font-size: large;
     text-decoration: none;
     letter-spacing: 2px;
+    color: black;
+}
+
+.selected{
+    color: #10b981;
+}
+
+.form {
+    text-align: center;
+    margin-top: 8rem;
+    
+}
+
+.form-container {
+
 }
 
 /* .form-container{
     
 }
 
-form{
-
-} */
 
 /* .cocktails{
     /* background-color: #10b981; */
@@ -57,5 +65,5 @@ form{
 }
 
 .cocktail-info{
-    background-color:blue;
+
 }

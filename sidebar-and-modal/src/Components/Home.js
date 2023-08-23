@@ -10,21 +10,22 @@ export default function Home() {
 
   return (
     <main>
-      <div>
+      <div className= {sidebar ? "sidebar-display" :"sidebar-toggle"}>
         {sidebar ? (
           <Sidebar closeSidebar={setSidebar} />
         ) : (
-          <button onClick={() => setSidebar(true)}>
+          <button className="toggle-btn"  onClick={() => setSidebar(true)}>
             <FaBars />
           </button>
-        )}
-        
+        )}        
       </div>
-      {showModal ? (
-        <Modal closeModal={setShowModal} />
-      ) : (
-        <button onClick={() => setShowModal(true)}>Show Modal</button>
-      )}
+      <div> 
+        {showModal ? (
+          <Modal closeModal={setShowModal} />
+        ) : (
+          <button className="show-modal" onClick={() => setShowModal(true)}>Show Modal</button>
+        )}
+      </div>
     </main>
   );
 }
