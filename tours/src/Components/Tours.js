@@ -15,11 +15,6 @@ export default function Tours(props) {
                     return <Tour
                         key={tour.id}
                         {...tour}
-                        // id={tour.id}
-                        // image={tour.image}
-                        // price={tour.price}
-                        // name={tour.name}
-                        // info={tour.info}
                         removeTour={props.removeTour}
                     />
                 })}
