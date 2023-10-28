@@ -1,12 +1,19 @@
-//import { Link } from "react-router-dom";
-import { Hero } from "../components";
+import { FeaturedProducts, Hero } from "../components";
+import { customFetch } from "../utils";
 
-function Landing() {
+const url = '/products?filters[featured][$eq]=true';
+
+export async function loader() {
+  const response = await customFetch(url);
+  const products = response.data.data;
+  return { products };
+}
+
+export function Landing() {
   return (
     <>
       <Hero />
+      <FeaturedProducts />
     </>
   );
 }
-
-export default Landing;
