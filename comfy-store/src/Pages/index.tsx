@@ -5,7 +5,7 @@ export { default as Cart } from './Cart';
 export { default as Error } from './Error';
 export { Landing } from './Landing';
 export { default as Orders } from './Orders';
-export { default as Products } from './Products';
+export { Products } from './Products';
 export { SingleProduct } from './SingleProduct';
 export { default as Register } from './Register';
 export { default as Checkout } from './Checkout';
