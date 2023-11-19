@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { formatPrice, customFetch, generateAmountOptions } from "../utils";
 import { Link, useLoaderData } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addItem } from "../features/cart/cartSlice";
 
 
 export async function loader({ params }: any) {
   const url = `/products/${params.id}`;
-  const response = await customFetch(url);
+  const response = await customFetch()(url);
   const product = response.data.data;
   return { product };
 }
@@ -22,6 +24,23 @@ export function SingleProduct() {
 
   function handleAmount(e : any) {
     setAmount(e.target.value);
+  }
+
+  const cartProduct = {
+    cartID: product.id + productColor,
+    productID: product.id,
+    image,
+    title,
+    company,
+    price,
+    amount,
+    productColor
+  };
+
+  const dispatch = useDispatch();
+
+  const addToCart = () => {
+    dispatch(addItem({ product: cartProduct }));
   }
 
   return (
@@ -80,7 +99,7 @@ export function SingleProduct() {
               </select>
             </div>
             <div className="mt-10">
-              <button className="btn btn-secondary btn-md" type="submit">Add to bag</button>
+              <button className="btn btn-secondary btn-md" type="submit" onClick={addToCart}>Add to bag</button>
             </div>
           </div>
         </div>
