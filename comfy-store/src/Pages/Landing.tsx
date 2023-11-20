@@ -3,9 +3,9 @@ import { customFetch } from "../utils";
 
 const url = '/products?filters[featured][$eq]=true';
 
-export async function loader() {
+export async function loader() : Promise<Products> {
   const response = await customFetch()(url);
-  const products = response.data.data;
+  const products: Product[] = response.data.data;
   return { products };
 }
 

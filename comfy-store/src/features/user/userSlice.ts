@@ -5,17 +5,17 @@ import { toast } from "react-toastify";
 const themes = {
     winter: "winter",
     dracula: "dracula",
-  };
-  
-  function getThemeFromLocalStorage() {
+};
+
+function getThemeFromLocalStorage() {
     const theme = localStorage.getItem("theme") || themes.winter;
     document.documentElement.setAttribute("data-theme", theme);
     return theme;
-  }
+}
 
-  function getUserFromLocalStorage() {
+function getUserFromLocalStorage() {
     return localStorage.getItem("user") || null;
-  }
+}
 
 const initialState = {
     user: getUserFromLocalStorage(),
@@ -29,7 +29,7 @@ const userSlice = createSlice({
         loginUser: (state, action) => {
             const user = { ...action.payload.user, token: action.payload.jwt };
             state.user = user;
-            localStorage.setItem('user', user);
+            localStorage.setItem('user', JSON.stringify(user));
         },
         logoutUser: (state: any) => {
             state.user = null;
@@ -37,7 +37,7 @@ const userSlice = createSlice({
             toast.success("Logged out succesfully");
         },
         toggleTheme: (state) => {
-            const {dracula, winter}: any = themes;
+            const { dracula, winter }: any = themes;
             state.theme = state.theme === dracula ? winter : dracula;
             document.documentElement.setAttribute("data-theme", state.theme);
             localStorage.setItem('theme', state.theme);
@@ -45,6 +45,6 @@ const userSlice = createSlice({
     }
 });
 
-export const {loginUser, logoutUser, toggleTheme} = userSlice.actions;
+export const { loginUser, logoutUser, toggleTheme } = userSlice.actions;
 
 export default userSlice.reducer;
