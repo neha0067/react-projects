@@ -25,6 +25,11 @@
       "last 1 safari version"
     ]
   },
+  "backpack-react-scripts": {
+    "babelIncludePrefixes": [
+      "@skyscanner/backpack-web"
+    ]
+  },
   "devDependencies": {
     "@skyscanner/backpack-web": "^15.1.0",
     "babel-eslint": "^10.1.0",
